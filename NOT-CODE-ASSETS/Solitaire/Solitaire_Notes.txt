@@ -1,0 +1,9 @@
+13 cards / color
+52 cards in deck
+7 rows of cards with 1 through 7 cards per row
+1 stack of 24 cards
+4 pils for 13 cards of each color
+
+
+Deck array 4 rows,
+Cards have coordinates to Deck array, determines which card is pulled
