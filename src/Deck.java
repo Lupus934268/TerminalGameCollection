@@ -15,6 +15,7 @@ public class Deck {
             { "A-dr", "2-dr", "3-dr", "4-dr", "5-dr", "6-dr","7-dr", "8-dr", "9-dr", "10-dr", "J-dr", "Q-dr", "K-dr" },
     };
 
+    //method for testing the Deck
     public void pullACard () {
 
         //scanner
