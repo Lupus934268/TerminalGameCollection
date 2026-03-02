@@ -5,16 +5,15 @@ public class Deck {
     //Deck Array - contains all Cards
     public String[][][] Deck = new String[][][] {
 
+            // first Index: color ; 0 = black , 1 = red
+            // second Index: row ; 0 = Spades / Hearts , 1 = Clubs / Diamonds
+            // third Index: rank ; 0 - 12 =^= ace - King (Ace as card one, King as card 13)
             {
-                    //Spades, black
                     {"A-sb", "2-sb", "3-sb", "4-sb", "5-sb", "6-sb", "7-sb", "8-sb", "9-sb", "10-sb", "J-sb", "Q-sb", "K-sb"},
-                    //Clubs, black
                     {"A-cb", "2-cb", "3-cb", "4-cb", "5-cb", "6-cb", "7-cb", "8-cb", "9-cb", "10-cb", "J-cb", "Q-cb", "K-cb"},
             },
             {
-                    //Hearts, red
                     {"A-hr", "2-hr", "3-hr", "4-hr", "5-hr", "6-hr", "7-hr", "8-hr", "9-hr", "10-hr", "J-hr", "Q-hr", "K-hr"},
-                    //Diamonds, red
                     {"A-dr", "2-dr", "3-dr", "4-dr", "5-dr", "6-dr", "7-dr", "8-dr", "9-dr", "10-dr", "J-dr", "Q-dr", "K-dr"},
             }
     };
