@@ -23,6 +23,16 @@ public class Solitaire {
 
     String[] Pile = new String[52];
 
+    //search the pile
+    public boolean searchPile( String str ) {
+        for (String s : Pile) {
+            if (s.equals(str)) {
+                return false;
+            };
+        };
+        return true;
+    };
+
     // shuffling the deck
     public void shuffleDeck() {
 
@@ -38,7 +48,14 @@ public class Solitaire {
             //gets random rank
             int getRandomRank = (int) Math.floor(Math.random() * Deck[0][0].length);
 
-            Pile[i] = Deck[getRandomColor][getRandomRow][getRandomRank];
+            boolean noDuplicateCards = searchPile( Deck[getRandomColor][getRandomRow][getRandomRank] );
+
+            if( noDuplicateCards ) {
+                Pile[i] = Deck[getRandomColor][getRandomRow][getRandomRank];
+            }
+            else{
+                i--;
+            };
         };
     };
 
