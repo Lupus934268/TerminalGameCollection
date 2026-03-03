@@ -1,10 +1,12 @@
 public class Main {
     public static void main(String[] args) {
 
+        //test-code if the shuffling the Deck works
+        Solitaire solitaireGame = new Solitaire();
 
-        //test-code if the deck works
-        Deck deck = new Deck();
-        deck.pullACard();
-
+        solitaireGame.shuffleDeck();
+        for(int i = 0; i < 52; i++) {
+            System.out.println( solitaireGame.Pile[i] );
+        }
     }
 }
