@@ -19,13 +19,13 @@ public class Deck {
     };
 
     //gets random color
-    int getRandomColor = (int) Math.floor( Math.random() * Deck.length );
+    public int getRandomColor = (int) Math.floor( Math.random() * Deck.length );
 
     //gets random row
-    int getRandomRow =(int)  Math.floor( Math.random() * Deck[0].length );
+    public int getRandomRow =(int)  Math.floor( Math.random() * Deck[0].length );
 
     //gets random rank
-    int getRandomRank = (int) Math.floor( Math.random() * Deck[0][0].length );
+    public int getRandomRank = (int) Math.floor( Math.random() * Deck[0][0].length );
 
 
     //method for testing the Deck
