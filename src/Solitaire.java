@@ -8,6 +8,9 @@ public class Solitaire {
             // first Index: color ; 0 = black , 1 = red
             // second Index: row ; 0 = Spades / Hearts , 1 = Clubs / Diamonds
             // third Index: rank ; 0 - 12 =^= ace - King (Ace as card one, King as card 13)
+
+            // cards are named like: "Rank"-"color""physical color"
+            // e.g.: J-sb == Jack of Spades (physical color being black)
             {
                     {"A-sb", "2-sb", "3-sb", "4-sb", "5-sb", "6-sb", "7-sb", "8-sb", "9-sb", "10-sb", "J-sb", "Q-sb", "K-sb"},
                     {"A-cb", "2-cb", "3-cb", "4-cb", "5-cb", "6-cb", "7-cb", "8-cb", "9-cb", "10-cb", "J-cb", "Q-cb", "K-cb"},
