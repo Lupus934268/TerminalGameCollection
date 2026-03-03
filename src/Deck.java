@@ -18,6 +18,16 @@ public class Deck {
             }
     };
 
+    //gets random color
+    int getRandomColor = (int) Math.floor( Math.random() * Deck.length );
+
+    //gets random row
+    int getRandomRow =(int)  Math.floor( Math.random() * Deck[0].length );
+
+    //gets random rank
+    int getRandomRank = (int) Math.floor( Math.random() * Deck[0][0].length );
+
+
     //method for testing the Deck
     public void pullACard () {
 
@@ -37,6 +47,13 @@ public class Deck {
         int rankDeck = myObj.nextInt();
 
         System.out.println( "Your card is:" + Deck[colorDeck][rowDeck][rankDeck] );
+
+    };
+
+    //method for testing pulling a random card from the array
+    public void howMany () {
+
+        System.out.println( getRandomColor + " " + getRandomRow + " " + getRandomRank + " therefore your card is " + Deck[getRandomColor][getRandomRow][getRandomRank] );
 
     };
 
