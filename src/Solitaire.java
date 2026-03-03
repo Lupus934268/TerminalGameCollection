@@ -25,8 +25,8 @@ public class Solitaire {
 
     //search the pile
     public boolean searchPile( String str ) {
-        for (String s : Pile) {
-            if (s.equals(str)) {
+        for(int i = 0; i < Pile.length; i++) {
+            if (str.equals(Pile[i])) {
                 return false;
             };
         };
@@ -35,6 +35,7 @@ public class Solitaire {
 
     // shuffling the deck
     public void shuffleDeck() {
+
 
         //fills the Pile with the shuffled cards
         for (int i = 0; i < 52; i++) {
