@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        //test-code if the shuffleing the Deck works
+        //test-code if the shuffling the Deck works
         Solitaire solitaireGame = new Solitaire();
 
         solitaireGame.shuffleDeck();
