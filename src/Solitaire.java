@@ -21,9 +21,14 @@ public class Solitaire {
             }
     };
 
-    String[] Pile = new String[52];
+    public String[] Pile = new String[52];
 
-    //search the pile
+    // Method that resets the Pile
+    public void pileRESET() {
+      String[] Pile = new String[52];
+    };
+
+    // Method that searches the pile for duplicate cards
     public boolean searchPile( String str ) {
         for(int i = 0; i < Pile.length; i++) {
             if (str.equals(Pile[i])) {
@@ -33,7 +38,7 @@ public class Solitaire {
         return true;
     };
 
-    // shuffling the deck
+    // Method that shuffles the deck
     public void shuffleDeck() {
 
 
@@ -60,7 +65,7 @@ public class Solitaire {
         };
     };
 
-
+    //Method that starts the game and manages the run
 
 
     // Test Methods:
