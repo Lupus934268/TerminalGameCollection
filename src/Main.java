@@ -10,7 +10,7 @@ public class Main {
 
         //get rank for pulling a card from the deck
         System.out.println("Enter suit");
-        var suitDeck = myObj.nextInt();
+        Cards.Suit suitDeck = Cards.Suit.valueOf( myObj.next() );
 
         //get rank for pulling a card from the deck
         System.out.println("Enter rank");

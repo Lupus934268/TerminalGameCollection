@@ -1,7 +1,7 @@
 public class Cards {
 
     // enums for card identification
-    enum Suit { spades , clubs , hearts , diamonds };
+    enum Suit {SPADES, CLUBS, HEARTS, DIAMONDS};
 
     //variables for object construction
     String name;
@@ -23,15 +23,15 @@ public class Cards {
     public String getName() {
         String nameRank;
             if( rank == 1 ){ nameRank = "Ace"; }
-            if( rank == 11 ){ nameRank = "Jack"; }
-            if( rank == 12 ){ nameRank = "Queen"; }
-            if( rank == 13 ){ nameRank = "King"; }
+            else if( rank == 11 ){ nameRank = "Jack"; }
+            else if( rank == 12 ){ nameRank = "Queen"; }
+            else if( rank == 13 ){ nameRank = "King"; }
             else{ nameRank = Integer.toString(rank); }
         String nameSuit;
-            if( suit == Suit.spades ) { nameSuit = "Spades"; }
-            if( suit == Suit.clubs ) { nameSuit = "Club"; }
-            if( suit == Suit.hearts ) { nameSuit = "Hearts"; }
-            if( suit == Suit.diamonds ) { nameSuit = "Diamonds"; }
+            if( suit == Suit.SPADES) { nameSuit = "Spades"; }
+            else if( suit == Suit.CLUBS) { nameSuit = "Club"; }
+            else if( suit == Suit.HEARTS) { nameSuit = "Hearts"; }
+            else if( suit == Suit.DIAMONDS) { nameSuit = "Diamonds"; }
             else{ nameSuit = "null"; }
         return( nameRank + " of " + nameSuit );
     }
