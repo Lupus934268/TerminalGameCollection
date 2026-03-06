@@ -16,7 +16,7 @@ public class Cards {
         name = getName();
 
         //throwing exceptions for illegal Arguments
-        if( getRank < 1 || getRank > 13 ) {throw new IllegalArgumentException( getRank + " is not a valid Rank" ); }
+        if( getRank < 1 || getRank > 13 ) { throw new IllegalArgumentException( getRank + " is not a valid Rank" ); }
     };
 
     //method for determining the name of the card
