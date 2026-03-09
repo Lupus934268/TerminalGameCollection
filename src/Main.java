@@ -9,7 +9,7 @@ public class Main {
         solitaireGame.pileShuffle();
 
         for( int i = 0 ; i < solitaireGame.Pile.length ; i++ ) {
-            System.out.println( solitaireGame.Pile[i] );
+            System.out.println( solitaireGame.Pile[i].name );
         }
 
     }
