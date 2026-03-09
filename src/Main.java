@@ -3,23 +3,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        //testing new card system
+       //testing new Pile array
+        Solitaire solitaireGame = new Solitaire();
 
-        //scanner
-        Scanner myObj = new Scanner(System.in);
+        solitaireGame.pileShuffle();
 
-        //get rank for pulling a card from the deck
-        System.out.println("Enter suit");
-        Cards.Suit suitDeck = Cards.Suit.valueOf( myObj.next() );
-
-        //get rank for pulling a card from the deck
-        System.out.println("Enter rank");
-        int rankDeck = myObj.nextInt();
-
-        //creating card object
-        Cards card = new Cards(suitDeck, rankDeck);
-
-        System.out.println( card.name );
+        for( int i = 0 ; i < solitaireGame.Pile.length ; i++ ) {
+            System.out.println( solitaireGame.Pile[i] );
+        }
 
     }
 }
