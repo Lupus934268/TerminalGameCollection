@@ -1,13 +1,14 @@
 public class Solitaire {
 
     public Cards[] Pile = new Cards[52];
+    Cards[][] tableau = new Cards[7][13];
 
     // Method that resets the Pile
     public void pileRESET() {
       Cards[] Pile = new Cards[52];
     }
 
-    // Method that checks the pile for duplicates
+    // Method that checks the pile for duplicates // not to be called outside of pileShuffle
     public boolean pileDupeCheck(Cards checkCard){
 
         for ( int i = 0 ; i < Pile.length ; i++  ){
@@ -49,5 +50,20 @@ public class Solitaire {
 
 
     //Method that starts the game and manages the run
+    public void gameStart(){
+        pileRESET();
+        pileShuffle();
+
+        int tempFill = Pile.length - 1;
+        for( int i = 0; i < 7; i++ ){
+            for( int n = 0; n < i+1; n++){
+
+                tableau[i][n] = Pile[tempFill];
+                tempFill--;
+
+            }
+        }
+
+    }
 
 }
