@@ -14,6 +14,7 @@ public class Cards {
         suit = getSuit;
         rank = getRank;
         name = getName();
+        visibility = 1;
 
         //throwing exceptions for illegal Arguments
         if( getRank < 1 || getRank > 13 ) { throw new IllegalArgumentException( getRank + " is not a valid Rank" ); }

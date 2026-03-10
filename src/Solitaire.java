@@ -1,7 +1,7 @@
 public class Solitaire {
 
     public Cards[] Pile = new Cards[52];
-    Cards[][] tableau = new Cards[7][13];
+    public Cards[][] tableau = new Cards[7][13];
 
     // Method that resets the Pile
     public void pileRESET() {
@@ -9,7 +9,7 @@ public class Solitaire {
     }
 
     // Method that checks the pile for duplicates // not to be called outside of pileShuffle
-    public boolean pileDupeCheck(Cards checkCard){
+    boolean pileDupeCheck(Cards checkCard){
 
         for ( int i = 0 ; i < Pile.length ; i++  ){
             if ( Pile[i] != null && Pile[i].suit == checkCard.suit && Pile[i].rank == checkCard.rank ){
@@ -48,12 +48,24 @@ public class Solitaire {
 
     }
 
+    // Method to check the visibility
+    void tableauVisCheck() {
+        for( int i = 0; i < 7; i++){
+            for( int n = 0; n < 12; n++){
+                if( tableau[i][n] != null && tableau[i][n+1] !=null){
+                    tableau[i][n].visibility = 0;
+                }
+            }
+        }
+    }
+
 
     //Method that starts the game and manages the run
     public void gameStart(){
         pileRESET();
         pileShuffle();
 
+        // filling tableau
         int tempFill = Pile.length - 1;
         for( int i = 0; i < 7; i++ ){
             for( int n = 0; n < i+1; n++){
@@ -63,7 +75,7 @@ public class Solitaire {
 
             }
         }
+        tableauVisCheck();
 
     }
-
 }

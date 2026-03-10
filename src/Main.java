@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-       //testing tableau array array
+       //testing tableau array and visibility
         Solitaire solitaireGame = new Solitaire();
 
         solitaireGame.gameStart();
@@ -12,8 +12,11 @@ public class Main {
             System.out.println( " " );
             System.out.println( "Stack " + n );
             for ( int i = 0; i < 13; i++ ){
-                if( solitaireGame.tableau[n][i] != null ){
+                if( solitaireGame.tableau[n][i] != null && solitaireGame.tableau[n][i].visibility != 0 ){
                     System.out.println( solitaireGame.tableau[n][i].name );
+                }
+                else if ( solitaireGame.tableau[n][i] != null && solitaireGame.tableau[n][i].visibility == 0 ) {
+                    System.out.println( "[-]" );
                 }
             }
         }
