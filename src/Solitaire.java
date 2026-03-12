@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Solitaire {
 
     public Cards[] Pile = new Cards[52];
@@ -76,6 +78,44 @@ public class Solitaire {
             }
         }
         tableauVisCheck();
+
+        //Game loop
+        boolean running = true;
+        Scanner inputScanner = new Scanner(System.in);
+
+        while( running ){
+
+            System.out.print( "> " );
+            String input = inputScanner.next();
+
+            switch( input ){
+                case "printTableau":
+
+                    for( int n = 0; n < 7; n++) {
+                        System.out.println(" ");
+                        System.out.println("Stack " + n);
+                        for (int i = 0; i < 13; i++) {
+                            if (tableau[n][i] != null && tableau[n][i].visibility != 0) {
+                                System.out.println(tableau[n][i].name);
+                            } else if (tableau[n][i] != null && tableau[n][i].visibility == 0) {
+                                System.out.println("[-]");
+                            }
+                        }
+                    }
+
+                    break;
+                case "help":
+                    System.out.println( "help - prints this screen" );
+                    System.out.println( "quit - quits the program" );
+                    System.out.println( "printTableau - prints the current tableau, to be used when playing the text-based version" );
+                    break;
+                case "quit":
+                    running = false;
+                    break;
+                default:
+                    System.out.println( input + " is not a recognised command; type 'help' for help" );
+            }
+        }
 
     }
 }
