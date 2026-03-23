@@ -28,12 +28,12 @@ public class Solitaire {
             // chooses a random rank
             int randomRank = (int) ( Math.random() * 13 ) +1 ;
             // chooses a random suit
-            Cards.Suit randomSuit;
+            Suit randomSuit;
                 int suitNum = (int) ( Math.random() * 4 );
-                if( suitNum == 0) { randomSuit = Cards.Suit.SPADES; }
-                else if( suitNum == 1) { randomSuit = Cards.Suit.CLUBS; }
-                else if( suitNum == 2) { randomSuit = Cards.Suit.HEARTS; }
-                else if( suitNum == 3) { randomSuit = Cards.Suit.DIAMONDS; }
+                if( suitNum == 0) { randomSuit = Suit.SPADES; }
+                else if( suitNum == 1) { randomSuit = Suit.CLUBS; }
+                else if( suitNum == 2) { randomSuit = Suit.HEARTS; }
+                else if( suitNum == 3) { randomSuit = Suit.DIAMONDS; }
                 else { throw new IllegalArgumentException( suitNum + " was not a valid Suit"); }
 
             //creates the card object
@@ -61,6 +61,30 @@ public class Solitaire {
         }
     }
 
+    // Method for printing the tableau
+    void printTableau() {
+        for (int n = 0; n < 7; n++) {
+            System.out.println(" ");
+            System.out.println("Stack " + n);
+            for (int i = 0; i < 13; i++) {
+                if (tableau[n][i] != null && tableau[n][i].visibility != 0) {
+                    System.out.println(tableau[n][i].name);
+                } else if (tableau[n][i] != null && tableau[n][i].visibility == 0) {
+                    System.out.println("[-]");
+                }
+            }
+        }
+    }
+
+    // Method for printing the Pile
+    void printPile(){
+
+        //currently prints the whole pile from the highest index to the lowest
+        for( int n = Pile.length -1; n > -1; n--){
+            System.out.println( Pile[n] );
+        }
+
+    }
 
     //Method that starts the game and manages the run
     public void gameStart(){
@@ -91,27 +115,26 @@ public class Solitaire {
             switch( input ){
                 case "printTableau":
 
-                    for( int n = 0; n < 7; n++) {
-                        System.out.println(" ");
-                        System.out.println("Stack " + n);
-                        for (int i = 0; i < 13; i++) {
-                            if (tableau[n][i] != null && tableau[n][i].visibility != 0) {
-                                System.out.println(tableau[n][i].name);
-                            } else if (tableau[n][i] != null && tableau[n][i].visibility == 0) {
-                                System.out.println("[-]");
-                            }
-                        }
-                    }
+                    printTableau();
 
                     break;
+
+                case "printPile":
+
+                    printPile();
+                    
+                    break;
+
                 case "help":
                     System.out.println( "help - prints this screen" );
                     System.out.println( "quit - quits the program" );
                     System.out.println( "printTableau - prints the current tableau, to be used when playing the text-based version" );
                     break;
+
                 case "quit":
                     running = false;
                     break;
+
                 default:
                     System.out.println( input + " is not a recognised command; type 'help' for help" );
             }

@@ -1,8 +1,5 @@
 public class Cards {
 
-    // enums for card identification
-    enum Suit {SPADES, CLUBS, HEARTS, DIAMONDS};
-
     //variables for object construction
     String name;
     Suit suit;
