@@ -4,11 +4,27 @@ public class Solitaire_Klondike {
 
     public Cards[] Pile = new Cards[52];
     public Cards[][] tableau = new Cards[7][13];
+    int pileCursor;
 
     // Method that resets the game state
     public void RESET() {
       Cards[] Pile = new Cards[52];
       Cards[][] tableau = new Cards[7][13];
+      int pileCursor = 0;
+    }
+
+    // Method that sets the variable, determining which card is being seen when printing the pile
+    int seeingThePile() {
+
+        int whereAreWe = 51;
+        if( Pile[whereAreWe] == null ){
+            whereAreWe--;
+        }
+        else{
+            return whereAreWe;
+        }
+
+        return 51;
     }
 
     // Method that checks the pile for duplicates // not to be called outside pileShuffle
@@ -107,7 +123,7 @@ public class Solitaire_Klondike {
     }
 
     // Method for printing the Pile
-    void printPile(){
+    void printPile() {
 
         //currently prints nothing
         for( int n = Pile.length -1; n > -1; n-- ){
@@ -118,7 +134,37 @@ public class Solitaire_Klondike {
 
     }
 
-    // Method for drawing a card and
+    // Method for drawing a card from the Pile ! NEEDS TO BE CALLED AFTER FILLING THE TABLEAU !
+    void drawACard() {
+
+        if( pileCursor > 0 ) {
+            if ( Pile[pileCursor] != null ) {
+                Pile[pileCursor].visibility = true;
+            }
+            if ( Pile[pileCursor - 1] != null ) {
+                Pile[pileCursor - 1].visibility = true;
+            }
+            if ( Pile[pileCursor - 2] != null ) {
+                Pile[pileCursor - 2].visibility = true;
+            }
+
+            pileCursor--;
+        }
+        else{
+            pileCursor = seeingThePile();
+
+            if ( Pile[pileCursor] != null ) {
+                Pile[pileCursor].visibility = true;
+            }
+            if ( Pile[pileCursor - 1] != null ) {
+                Pile[pileCursor - 1].visibility = true;
+            }
+            if ( Pile[pileCursor - 2] != null ) {
+                Pile[pileCursor - 2].visibility = true;
+            }
+        }
+
+    }
 
     //Method that starts the game and manages the run
     public void gameStart(){
@@ -128,6 +174,7 @@ public class Solitaire_Klondike {
 
         pileVisCheck();
         tableauVisCheck();
+        pileCursor = seeingThePile();
 
         //Game loop
         boolean running = true;
@@ -148,7 +195,7 @@ public class Solitaire_Klondike {
                     break;
 
                 case "drawCard":
-
+                    drawACard();
 
                     break;
 
@@ -158,7 +205,7 @@ public class Solitaire_Klondike {
                     System.out.println(  ); // for formating the output.
                     System.out.println( "printTableau - prints the current tableau, to be used when playing the text-based version" );
                     System.out.println( "printPile - prints the current Pile, to be used when playing the text-based version" );
-                    System.out.println( "drawCard - draws a card from the Pile, to be used when playing the text-based version");
+                    System.out.println( "drawCard - draws a card from the Pile and prints the current Pile, to be used when playing the text-based version");
 
                     break;
 
