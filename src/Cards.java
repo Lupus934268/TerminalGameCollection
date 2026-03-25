@@ -4,14 +4,14 @@ public class Cards {
     String name;
     Suit suit;
     int rank; // rank must be >0 and <14
-    int visibility; // visibility > 0 the card is visible
+    boolean visibility; // visibility > 0 the card is visible
 
     //constructor for card object
     public Cards( Suit getSuit , int getRank ){
         suit = getSuit;
         rank = getRank;
         name = getName();
-        visibility = 1;
+        visibility = true;
 
         //throwing exceptions for illegal Arguments
         if( getRank < 1 || getRank > 13 ) { throw new IllegalArgumentException( getRank + " is not a valid Rank" ); }

@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) {
 
-        Solitaire solitaireGame = new Solitaire();
+        Solitaire_Klondike solitaireGame = new Solitaire_Klondike();
         solitaireGame.gameStart();
 
     }
