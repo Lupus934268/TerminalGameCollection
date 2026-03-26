@@ -2,22 +2,24 @@ import java.util.Scanner;
 
 public class Solitaire_Klondike {
 
-    public Cards[] Pile = new Cards[52];
+    public Cards[] stockPile = new Cards[52];
     public Cards[][] tableau = new Cards[7][13];
+    public Cards[][] foundation = new Cards[4][13];
     int pileCursor;
 
     // Method that resets the game state
     public void RESET() {
-      Cards[] Pile = new Cards[52];
-      Cards[][] tableau = new Cards[7][13];
-      int pileCursor = 0;
+        stockPile = new Cards[52];
+        tableau = new Cards[7][13];
+        foundation = new Cards[4][13];
+        pileCursor = 0;
     }
 
     // Method that sets the variable, determining which card is being seen when printing the pile
     int seeingThePile() {
 
-        for( int i = Pile.length - 1; i >= 0; i-- ){
-            if (Pile[i] != null) {
+        for(int i = stockPile.length - 1; i >= 0; i-- ){
+            if (stockPile[i] != null) {
                 return i;
             }
         }
@@ -27,8 +29,8 @@ public class Solitaire_Klondike {
     // Method that checks the pile for duplicates // not to be called outside pileShuffle
     boolean pileDupeCheck(Cards checkCard){
 
-        for ( int i = 0 ; i < Pile.length ; i++  ){
-            if ( Pile[i] != null && Pile[i].suit == checkCard.suit && Pile[i].rank == checkCard.rank ){
+        for (int i = 0; i < stockPile.length ; i++  ){
+            if ( stockPile[i] != null && stockPile[i].suit == checkCard.suit && stockPile[i].rank == checkCard.rank ){
                 return false;
             }
         }
@@ -38,7 +40,7 @@ public class Solitaire_Klondike {
     // Method that randomly fills the pile array
     public void pileShuffle() {
 
-        for( int i = 0 ; i < Pile.length ; i++ ){
+        for(int i = 0; i < stockPile.length ; i++ ){
             // chooses a random rank
             int randomRank = (int) ( Math.random() * 13 ) +1 ;
             // chooses a random suit
@@ -55,7 +57,7 @@ public class Solitaire_Klondike {
 
             // filling the pile
             if( pileDupeCheck( card ) ) {
-                Pile[i] = card;
+                stockPile[i] = card;
             }
             else{
                 i--;
@@ -67,12 +69,12 @@ public class Solitaire_Klondike {
     // Method for filling the tableau
     void tableauFill(){
 
-        int tempFill = Pile.length - 1;
+        int tempFill = stockPile.length - 1;
         for( int i = 0; i < 7; i++ ){
             for( int n = 0; n < i+1; n++){
 
-                tableau[i][n] = Pile[tempFill];
-                Pile[tempFill] = null;
+                tableau[i][n] = stockPile[tempFill];
+                stockPile[tempFill] = null;
                 tempFill--;
 
             }
@@ -93,12 +95,12 @@ public class Solitaire_Klondike {
 
     }
 
-    // Method to check visibility of Cards in the Pile at Start of Game
+    // Method to check visibility of Cards in the stockPile at Start of Game
     void pileVisCheck() {
 
         for( int n = 0; n < 52; n++ ){
-            if( Pile[n] != null ){
-                Pile[n].visibility = false;
+            if( stockPile[n] != null ){
+                stockPile[n].visibility = false;
             }
         }
 
@@ -119,37 +121,37 @@ public class Solitaire_Klondike {
         }
     }
 
-    // Method for printing the Pile
+    // Method for printing the stockPile
     void printPile() {
 
         //currently prints nothing
-        for( int n = Pile.length - 1; n > -1; n-- ){
-            if( Pile[n] != null && Pile[n].visibility && n == pileCursor + 1 ){
-                System.out.println(Pile[n].name + " <");
+        for(int n = stockPile.length - 1; n > -1; n-- ){
+            if( stockPile[n] != null && stockPile[n].visibility && n == pileCursor + 1 ){
+                System.out.println(stockPile[n].name + " <");
             }
-            else if( Pile[n] != null && Pile[n].visibility ) {
-                System.out.println(Pile[n].name);
+            else if( stockPile[n] != null && stockPile[n].visibility ) {
+                System.out.println(stockPile[n].name);
             }
         }
 
     }
 
-    // Method for drawing a card from the Pile ! NEEDS TO BE CALLED AFTER FILLING THE TABLEAU !
+    // Method for drawing a card from the stockPile ! NEEDS TO BE CALLED AFTER FILLING THE TABLEAU !
     void drawACard() {
 
         if( pileCursor == -1 ) {
-            System.out.println("Pile is empty");
+            System.out.println("stockPile is empty");
             return;
         }
 
 
-        for( int i = 0; i < Pile.length; i++ ){
-            if ( pileCursor == 0 && Pile[i] == null ) {
+        for(int i = 0; i < stockPile.length; i++ ){
+            if ( pileCursor == 0 && stockPile[i] == null ) {
                 pileCursor = i - 1;
             }
         }
-        if(Pile[pileCursor] != null) Pile[pileCursor].visibility = true;
-        if( pileCursor + 3 < 52 && Pile[pileCursor + 3] != null ) Pile[pileCursor + 3].visibility = false;
+        if(stockPile[pileCursor] != null) stockPile[pileCursor].visibility = true;
+        if( pileCursor + 3 < 52 && stockPile[pileCursor + 3] != null ) stockPile[pileCursor + 3].visibility = false;
         pileCursor --;
 
         printPile();
@@ -180,7 +182,7 @@ public class Solitaire_Klondike {
                     printTableau();
                     break;
 
-                case "printPile":
+                case "printStockPile":
                     printPile();
                     break;
 
@@ -194,8 +196,8 @@ public class Solitaire_Klondike {
                     System.out.println( "quit - quits the program" );
                     System.out.println(  ); // for formating the output.
                     System.out.println( "printTableau - prints the current tableau, to be used when playing the text-based version" );
-                    System.out.println( "printPile - prints the current Pile, to be used when playing the text-based version" );
-                    System.out.println( "drawCard - draws a card from the Pile and prints the current Pile, to be used when playing the text-based version");
+                    System.out.println( "printStockPile - prints the current stockPile, to be used when playing the text-based version" );
+                    System.out.println( "drawCard - draws a card from the stockPile and prints the current stockPile, to be used when playing the text-based version");
 
                     break;
 
