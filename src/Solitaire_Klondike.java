@@ -16,15 +16,12 @@ public class Solitaire_Klondike {
     // Method that sets the variable, determining which card is being seen when printing the pile
     int seeingThePile() {
 
-        int whereAreWe = 51;
-        if( Pile[whereAreWe] == null ){
-            whereAreWe--;
+        for( int i = Pile.length - 1; i >= 0; i-- ){
+            if (Pile[i] != null) {
+                return i;
+            }
         }
-        else{
-            return whereAreWe;
-        }
-
-        return 51;
+        return -1; //pile is empty
     }
 
     // Method that checks the pile for duplicates // not to be called outside pileShuffle
@@ -126,8 +123,11 @@ public class Solitaire_Klondike {
     void printPile() {
 
         //currently prints nothing
-        for( int n = Pile.length -1; n > -1; n-- ){
-            if( Pile[n] != null && Pile[n].visibility) {
+        for( int n = Pile.length - 1; n > -1; n-- ){
+            if( Pile[n] != null && Pile[n].visibility && n == pileCursor + 1 ){
+                System.out.println(Pile[n].name + " <");
+            }
+            else if( Pile[n] != null && Pile[n].visibility ) {
                 System.out.println(Pile[n].name);
             }
         }
@@ -137,32 +137,22 @@ public class Solitaire_Klondike {
     // Method for drawing a card from the Pile ! NEEDS TO BE CALLED AFTER FILLING THE TABLEAU !
     void drawACard() {
 
-        if( pileCursor > 0 ) {
-            if ( Pile[pileCursor] != null ) {
-                Pile[pileCursor].visibility = true;
-            }
-            if ( Pile[pileCursor - 1] != null ) {
-                Pile[pileCursor - 1].visibility = true;
-            }
-            if ( Pile[pileCursor - 2] != null ) {
-                Pile[pileCursor - 2].visibility = true;
-            }
-
-            pileCursor--;
+        if( pileCursor == -1 ) {
+            System.out.println("Pile is empty");
+            return;
         }
-        else{
-            pileCursor = seeingThePile();
 
-            if ( Pile[pileCursor] != null ) {
-                Pile[pileCursor].visibility = true;
-            }
-            if ( Pile[pileCursor - 1] != null ) {
-                Pile[pileCursor - 1].visibility = true;
-            }
-            if ( Pile[pileCursor - 2] != null ) {
-                Pile[pileCursor - 2].visibility = true;
+
+        for( int i = 0; i < Pile.length; i++ ){
+            if ( pileCursor == 0 && Pile[i] == null ) {
+                pileCursor = i - 1;
             }
         }
+        if(Pile[pileCursor] != null) Pile[pileCursor].visibility = true;
+        if( pileCursor + 3 < 52 && Pile[pileCursor + 3] != null ) Pile[pileCursor + 3].visibility = false;
+        pileCursor --;
+
+        printPile();
 
     }
 
