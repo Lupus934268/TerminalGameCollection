@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class Solitaire_Klondike {
 
-    public Cards[] stockPile = new Cards[52];
-    public Cards[][] tableau = new Cards[7][13];
-    public Cards[][] foundation = new Cards[4][13];
+    public Cards[] stockPile = new Cards[52]; //shuffeled deck
+    public Cards[][] tableau = new Cards[7][13]; //play area with black on red and red on black
+    public Cards[][] foundation = new Cards[4][13]; //single suit, from ace(low) to king
     int pileCursor;
 
     // Method that resets the game state
@@ -110,7 +110,7 @@ public class Solitaire_Klondike {
     void printTableau() {
         for (int n = 0; n < 7; n++) {
             System.out.println(" ");
-            System.out.println("Stack " + n);
+            System.out.println("Stack " + (n+1));
             for (int i = 0; i < 13; i++) {
                 if (tableau[n][i] != null && tableau[n][i].visibility ) {
                     System.out.println(tableau[n][i].name);
@@ -172,39 +172,55 @@ public class Solitaire_Klondike {
         boolean running = true;
         Scanner inputScanner = new Scanner(System.in);
 
+        // switch taking user input for game logic
         while( running ){
 
             System.out.print( "> " );
             String input = inputScanner.next();
 
             switch( input ){
+
+                // prints Tableau to screen
                 case "printTableau":
                     printTableau();
                     break;
 
+                // prints stockPile to screen
                 case "printStockPile":
                     printPile();
                     break;
 
+                // draws a card and Prints stockPile
                 case "drawCard":
                     drawACard();
 
                     break;
 
+                // prints help
                 case "help":
-                    System.out.println( "help - prints this screen" );
-                    System.out.println( "quit - quits the program" );
+                    System.out.println( "-----Klondike Solitaire-----" );
+                    System.out.println( "help               -       prints this screen" );
+                    System.out.println( "quit               -       quits the program" );
                     System.out.println(  ); // for formating the output.
-                    System.out.println( "printTableau - prints the current tableau, to be used when playing the text-based version" );
-                    System.out.println( "printStockPile - prints the current stockPile, to be used when playing the text-based version" );
-                    System.out.println( "drawCard - draws a card from the stockPile and prints the current stockPile, to be used when playing the text-based version");
+                    System.out.println( "printTableau       -       prints the current tableau, to be used when playing the text-based version" );
+                    System.out.println( "printStockPile     -       prints the current stockPile, to be used when playing the text-based version" );
+                    System.out.println( "drawCard           -       draws a card from the stockPile and prints the current stockPile, to be used when playing the text-based version");
+                    System.out.println(  ); // for formating the output.
 
                     break;
 
+                // quits the game
                 case "quit":
                     running = false;
                     break;
 
+                // test option... will probably go unused in final version, or be removed all together
+                case "test":
+
+                    break;
+
+
+                    // tells u that u r stoopid and tells u to get help
                 default:
                     System.out.println( input + " is not a recognised command; type 'help' for help" );
             }
