@@ -7,6 +7,10 @@ public class Solitaire_Klondike {
     public Cards[][] foundation = new Cards[4][13]; //single suit, from ace(low) to king
     int pileCursor;
 
+    // variables that stores stack value and card value for selecting a card in game
+    int stackCursor; // for the first number demanded from the array
+    int cardStackCursor; // for the second number demanded by the array
+
     // Method that resets the game state
     public void RESET() {
         stockPile = new Cards[52];
@@ -112,7 +116,9 @@ public class Solitaire_Klondike {
             System.out.println(" ");
             System.out.println("Stack " + (n+1));
             for (int i = 0; i < 13; i++) {
-                if (tableau[n][i] != null && tableau[n][i].visibility ) {
+                if (tableau[n][i] != null && tableau[n][i].visibility && n == stackCursor && i == cardStackCursor ) {
+                    System.out.println( "> " + tableau[n][i].name);
+                } else if (tableau[n][i] != null && tableau[n][i].visibility) {
                     System.out.println(tableau[n][i].name);
                 } else if (tableau[n][i] != null &&  !tableau[n][i].visibility) {
                     System.out.println("[-]");
@@ -158,6 +164,37 @@ public class Solitaire_Klondike {
 
     }
 
+    void selectTableauStack( String sTS_input) {
+
+        switch(sTS_input){
+
+            case "Stack 1":
+                stackCursor = 0;
+                break;
+            case "Stack 2":
+                stackCursor = 1;
+                break;
+            case "Stack 3":
+                stackCursor = 2;
+                break;
+            case "Stack 4":
+                stackCursor = 3;
+                break;
+            case "Stack 5":
+                stackCursor = 4;
+                break;
+            case "Stack 6":
+                stackCursor = 5;
+                break;
+            case "Stack 7":
+                stackCursor = 6;
+                break;
+            default:
+                System.out.println( "you did not select a stack"  );
+        }
+
+    }
+
     //Method that starts the game and manages the run
     public void gameStart(){
         RESET();
@@ -175,6 +212,7 @@ public class Solitaire_Klondike {
         // switch taking user input for game logic
         while( running ){
 
+            // PS1 prompt
             System.out.print( "> " );
             String input = inputScanner.next();
 
@@ -195,6 +233,12 @@ public class Solitaire_Klondike {
                     drawACard();
 
                     break;
+
+                // new - select a card
+                case "select":
+
+
+
 
                 // prints help
                 case "help":
@@ -220,7 +264,7 @@ public class Solitaire_Klondike {
                     break;
 
 
-                    // tells u that u r stoopid and tells u to get help
+                // tells u that u r stoopid and to get help
                 default:
                     System.out.println( input + " is not a recognised command; type 'help' for help" );
             }
