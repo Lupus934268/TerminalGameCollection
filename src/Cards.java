@@ -29,7 +29,7 @@ public class Cards {
             else{ nameRank = Integer.toString(rank); }
         String nameSuit;
             if( suit == Suit.SPADES) { nameSuit = "Spades"; }
-            else if( suit == Suit.CLUBS) { nameSuit = "Club"; }
+            else if( suit == Suit.CLUBS) { nameSuit = "Clubs"; }
             else if( suit == Suit.HEARTS) { nameSuit = "Hearts"; }
             else if( suit == Suit.DIAMONDS) { nameSuit = "Diamonds"; }
             else{ nameSuit = "null"; }
