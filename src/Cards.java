@@ -4,6 +4,7 @@ public class Cards {
     String name;
     Suit suit;
     int rank; // rank must be >0 and <14
+    boolean isRed;
     boolean visibility; // visibility > 0 the card is visible
 
     //constructor for card object
@@ -12,13 +13,14 @@ public class Cards {
         rank = getRank;
         name = getName();
         visibility = true;
+        isRed = getIsRed();
 
         //throwing exceptions for illegal Arguments
         if( getRank < 1 || getRank > 13 ) { throw new IllegalArgumentException( getRank + " is not a valid Rank" ); }
     };
 
     //method for determining the name of the card
-    public String getName() {
+    private String getName() {
         String nameRank;
             if( rank == 1 ){ nameRank = "Ace"; }
             else if( rank == 11 ){ nameRank = "Jack"; }
@@ -32,5 +34,10 @@ public class Cards {
             else if( suit == Suit.DIAMONDS) { nameSuit = "Diamonds"; }
             else{ nameSuit = "null"; }
         return( nameRank + " of " + nameSuit );
+    }
+
+    //methods for determening color
+    private Boolean getIsRed() {
+        return (suit.equals(Suit.HEARTS) || suit.equals(Suit.DIAMONDS));
     }
 }
