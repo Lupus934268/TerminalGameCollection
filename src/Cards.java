@@ -5,7 +5,7 @@ public class Cards {
     Suit suit;
     int rank; // rank must be >0 and <14
     boolean isRed;
-    boolean visibility; // visibility > 0 the card is visible
+    boolean visibility;
 
     //constructor for card object
     public Cards( Suit getSuit , int getRank ){
@@ -36,7 +36,7 @@ public class Cards {
         return( nameRank + " of " + nameSuit );
     }
 
-    //methods for determening color
+    //methods for determining color
     private Boolean getIsRed() {
         return (suit.equals(Suit.HEARTS) || suit.equals(Suit.DIAMONDS));
     }
