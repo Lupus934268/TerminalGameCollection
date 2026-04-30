@@ -1,4 +1,4 @@
-# --- TERMINAL GAME COLLECTION ---
+# TERMINAL GAME COLLECTION
 
 Klondike Solitaire is *technically* playable.
 I thought now is finally a good time to make a README.
