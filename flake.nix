@@ -13,18 +13,20 @@
           
           # packages installed in the devShell
           neovim
-          jdk25
+          jdk21
           maven
           jetbrains.idea-oss
           git
 
         ];
         shellHook = ''
+
           clear
           echo "Welcome to the devShell!!!"
           echo
           tree
           PS1='\n\[\033[1;35m\][devShell]\[\033[0m\]:\w\n>> '
+
           '';
       };
     };
