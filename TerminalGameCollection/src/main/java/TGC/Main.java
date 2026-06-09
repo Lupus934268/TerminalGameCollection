@@ -23,14 +23,17 @@ public class Main {
         Panel panel = new Panel();
         panel.setLayoutManager(new GridLayout(2));
 
-        panel.addComponent(new Label("Forename"));
+        panel.addComponent(new Label("Baum"));
         panel.addComponent(new TextBox());
 
-        panel.addComponent(new Label("Surname"));
+        panel.addComponent(new Label("lupus"));
+        panel.addComponent(new TextBox());
+
+        panel.addComponent(new Label("Busch"));
         panel.addComponent(new TextBox());
 
         panel.addComponent(new EmptySpace(new TerminalSize(0,0))); // Empty space underneath labels
-        panel.addComponent(new Button("Submit"));
+        panel.addComponent(new Button("KYS"));
 
         // Create window to hold the panel
         BasicWindow window = new BasicWindow();
