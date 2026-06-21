@@ -22,8 +22,6 @@
           ignorePatterns = [
             "hardware-configuration.nix"
             "flake.lock"
-            ".gitignore"
-            ".git"
             "modules/packages/pkglist.txt"
           ];
         };
