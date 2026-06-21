@@ -1,0 +1,4 @@
+hardware-configuration.nix
+flake.lock
+.gitignore
+.git
