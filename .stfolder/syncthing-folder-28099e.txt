@@ -1,5 +1,0 @@
-# This directory is a Syncthing folder marker.
-# Do not delete.
-
-folderID: nixos-flake
-created: 2026-06-21T20:08:04+02:00
