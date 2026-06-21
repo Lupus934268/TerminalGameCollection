@@ -11,8 +11,8 @@
     settings = {
       devices = {
         nixos-PC.id = "DDGWKOP-AAGWJ3A-HEVF3D2-I5X7ATJ-LOP7MZW-DTJTQ6Z-RN6BSXV-2V5JHQT";
-        nixos-FRMW.id = "PGDDY26-RIMC3X6-XWPC7CY-5MSFQ3B-5QDJOSO-DDPYSDF-RATWBSJ-TG7RIAT";
-        phone.id = "LE2XNQO-XUJJJ62-JULPJV5-XHPXEOT-6JUIJ26-ZSJJLWE-6N3AVOZ-6SLUQQZ";
+        nixos-FRMW.id = "4HMZ4QS-7A5H57N-TWNKQJZ-SRPMSHY-HR53Z4G-LC7DGI4-TU4OWOJ-WBKGPQ3";
+        Mix-Flip.id = "LE2XNQO-XUJJJ62-JULPJV5-XHPXEOT-6JUIJ26-ZSJJLWE-6N3AVOZ-6SLUQQZ";
       };
       folders = {
         nixos-flake = {
@@ -24,10 +24,13 @@
             "flake.lock"
             ".gitignore"
             ".git"
+            "modules/packages/pkglist.txt"
           ];
         };
       };
     };
+    overrideFolders = false;
+    overrideDevices = false;
   };
 
   systemd.tmpfiles.rules = [
