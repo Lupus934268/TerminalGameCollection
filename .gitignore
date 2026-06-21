@@ -1,3 +1,5 @@
 hardware-configuration.nix
 flake.lock
 modules/packages/pkglist.txt
+.stfolder
+.stignore
