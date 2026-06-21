@@ -21,6 +21,11 @@
       flake = false;
     };
 
+    nixosdir = {
+      url = "path:/etc/nixos";
+      flake = false;
+    };
+
 
     #===== Hyprland =====
 
