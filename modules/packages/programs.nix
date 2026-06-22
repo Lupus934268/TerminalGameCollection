@@ -98,6 +98,8 @@
     pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
   };
 
+  virtualisation.waydroid.enable = true;
+
   system.activationScripts.packageList = {
     text = ''
       ${pkgs.nix}/bin/nix-store -q --references /run/current-system/sw \

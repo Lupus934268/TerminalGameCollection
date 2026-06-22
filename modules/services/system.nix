@@ -14,7 +14,7 @@
 
     flatpak = {
       enable = true;
-      packages = [ "com.github.flxzt.rnote" ];
+      packages = [ "com.github.flxzt.rnote" "com.usebottles.bottles"  ];
     };
   };
 }
