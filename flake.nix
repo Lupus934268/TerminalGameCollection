@@ -27,6 +27,8 @@
           tree
           PS1='\n\[\033[1;35m\][devShell]\[\033[0m\]:\w\n>> '
 
+          sudo ln -sf $(which stty) /bin/stty
+
           '';
       };
     };
