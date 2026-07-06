@@ -21,6 +21,8 @@
         ];
         shellHook = ''
 
+          sudo ln -sf $(which stty) /bin/stty 2>/dev/null || true
+
           clear
           echo "Welcome to the devShell!!!"
           echo
