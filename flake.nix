@@ -13,10 +13,14 @@
           
           # packages installed in the devShell
           neovim
+          git
+
           jdk21
           maven
           jetbrains.idea-oss
-          git
+
+          rustup
+          jetbrains.rust-rover
 
         ];
         shellHook = ''
