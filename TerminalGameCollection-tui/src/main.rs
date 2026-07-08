@@ -1,5 +1,5 @@
-mod klondike-solitaire-ui;
+mod klondike;
 
 fn main() {
-    klondike-solitaire-ui::draw_screen()
+    klondike::draw_screen().expect("failed to draw screen");
 }

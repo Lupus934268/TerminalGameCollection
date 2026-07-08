@@ -12,7 +12,17 @@
         buildInputs = with pkgs; [
           
           # packages installed in the devShell
-          neovim
+          (neovim.override {
+            configure = {
+              packages.myPlugins = with pkgs.vimPlugins; {
+                start = [
+                  (nvim-treesitter.withPlugins (p: [ p.rust p.java p.xml p.toml ]))
+                  nvim-cmp
+                  cmp-nvim-lsp
+                ];
+              };
+            };
+          })
           rust-analyzer
           jdt-language-server
           lemminx
@@ -32,7 +42,7 @@
           clear
           echo "Welcome to the devShell!!!"
           echo
-          tree -a -I '.git/*' --filesfirst
+          tree  -a -I '.git/*' -I 'TerminalGameCollection-tui/target/*' --filesfirst
           alias nvim="nvim -u $PWD/tgc-nvim.lua"
           PS1='\n\[\033[1;35m\][devShell]\[\033[0m\]:\w\n>> '
         '';
