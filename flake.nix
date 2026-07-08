@@ -13,29 +13,29 @@
           
           # packages installed in the devShell
           neovim
+          rust-analyzer
+          jdt-language-server
+          lemminx
+
           git
 
           jdk21
           maven
           jetbrains.idea-oss
-
-          rustup
-          jetbrains.rust-rover
+          
+          rustc
+          cargo
 
         ];
         shellHook = ''
-
           sudo ln -sf $(which stty) /bin/stty 2>/dev/null || true
-
           clear
           echo "Welcome to the devShell!!!"
           echo
-          tree
+          tree -a -I '.git/*' --filesfirst
+          alias nvim="nvim -u $PWD/tgc-nvim.lua"
           PS1='\n\[\033[1;35m\][devShell]\[\033[0m\]:\w\n>> '
-
-          sudo ln -sf $(which stty) /bin/stty
-
-          '';
+        '';
       };
     };
 }
