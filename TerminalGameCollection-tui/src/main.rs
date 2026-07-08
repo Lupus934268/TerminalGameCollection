@@ -1,3 +1,5 @@
+mod klondike-solitaire-ui;
+
 fn main() {
-    println!("Hello, world!");
+    klondike-solitaire-ui::draw_screen()
 }
