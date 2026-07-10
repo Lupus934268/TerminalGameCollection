@@ -57,7 +57,7 @@
           pname = "TGC-Backend";
           version = "0.0";
           src = ./TerminalGameCollection;
-          mvnHash = pkgs.lib.fakeHash;
+          mvnHash = "sha256-dzdsiRBtnxUMBkwCgtHlcABklIT6TQiyQ7fTop81Ljk=";
           installPhase = ''
             mkdir -p $out/share/TGC
             cp target/TerminalGameCollection-*.jar $out/share/TGC/TGC-Backend.jar
@@ -68,7 +68,7 @@
           pname = "TGC-Frontend";
           version = "0.0";
           src = ./TerminalGameCollection-tui;
-          cargoHash = pkgs.lib.fakeHash;
+          cargoHash = "sha256-TRQLE7NZ9ksABqFEjxtXwsK3rOw616q1xXN4gQPZme4=";
         };
 
         default = pkgs.symlinkJoin {
